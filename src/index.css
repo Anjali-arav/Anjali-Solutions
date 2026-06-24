@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-neon-blue: #00f0ff;
+  --color-neon-blue-glow: rgba(0, 240, 255, 0.15);
+  --color-neon-blue-glow-hover: rgba(0, 240, 255, 0.4);
+  --color-dark-bg: #060913;
+  --color-dark-card: rgba(13, 20, 38, 0.5);
+  --color-dark-border: rgba(0, 240, 255, 0.1);
+}
+
+@layer base {
+  body {
+    background-color: var(--color-dark-bg);
+    color: #e2e8f0;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+}
+
+/* Custom Utilities for Futuristic / Glassmorphism Styles */
+.glass-panel {
+  background: rgba(13, 20, 38, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 240, 255, 0.08);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(13, 20, 38, 0.65);
+  border-color: rgba(0, 240, 255, 0.3);
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.15);
+  transform: translateY(-4px);
+}
+
+.neon-glow-text {
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.5), 0 0 2px rgba(0, 240, 255, 0.3);
+}
+
+.neon-glow-btn {
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.25);
+  transition: all 0.3s ease;
+}
+
+.neon-glow-btn:hover {
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.6);
+  background-color: #00f0ff;
+  color: #060913;
+}
+
+.neon-glow-border {
+  border-color: rgba(0, 240, 255, 0.5);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.1);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #060913;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 240, 255, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 240, 255, 0.5);
+}
+
+/* Map responsive styling */
+.map-container iframe {
+  width: 100% !important;
+  height: 100% !important;
+  border: 0;
+}
