@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, useInView } from 'motion/react';
-import { Award, Users, CheckSquare, Smile, Cpu, CheckCircle } from 'lucide-react';
+import { Award, Heart, Utensils, Star, Soup, CheckCircle } from 'lucide-react';
 
 interface CounterProps {
   value: number;
@@ -29,8 +29,8 @@ function AnimatedCounter({ value, suffix = '', duration = 1500 }: CounterProps) 
   }, [value, duration, isInView]);
 
   return (
-    <span ref={elementRef} className="font-mono text-4xl sm:text-5xl font-bold text-white tracking-tight">
-      {count}
+    <span ref={elementRef} className="font-display text-4xl sm:text-5xl font-extrabold text-gold-accent tracking-tight">
+      {count.toLocaleString()}
       {suffix}
     </span>
   );
@@ -39,83 +39,85 @@ function AnimatedCounter({ value, suffix = '', duration = 1500 }: CounterProps) 
 export default function WhyChooseUs() {
   const stats = [
     {
-      id: 'exp',
-      title: '5+ Years Experience',
-      value: 5,
+      id: 'legacy',
+      title: '1+ Year Legacy',
+      value: 1,
       suffix: '+',
-      description: 'Dedicated professional technology and digital business delivery in India.',
+      description: 'Serving luxurious fine-dining gastronomy in Jubilee Hills, Hyderabad.',
       icon: Award,
-      color: 'text-cyan-400'
+      color: 'text-amber-400'
     },
     {
-      id: 'team',
-      title: 'Professional Team',
-      value: 24,
-      suffix: '',
-      description: 'Engineers, graphic visualists, certified consultants, and full-stack coders.',
-      icon: Users,
-      color: 'text-indigo-400'
-    },
-    {
-      id: 'solutions',
-      title: 'Quality Solutions',
-      value: 120,
-      suffix: '+',
-      description: 'Robust, fully scalable production builds matching modern security benchmarks.',
-      icon: CheckSquare,
-      color: 'text-neon-blue'
-    },
-    {
-      id: 'satisfaction',
-      title: 'Customer Satisfaction',
-      value: 99,
-      suffix: '%',
-      description: 'Exceptional client feedback loops, iterative revisions, and long-term support.',
-      icon: Smile,
-      color: 'text-emerald-400'
-    },
-    {
-      id: 'tech',
-      title: 'Modern Technology',
+      id: 'recipes',
+      title: 'Signature Dishes',
       value: 15,
       suffix: '+',
-      description: 'Leveraging cutting-edge cloud, web, responsive mobile frameworks, and database engines.',
-      icon: Cpu,
+      description: 'Handcrafted master recipes representing exquisite tastes and textures.',
+      icon: Soup,
+      color: 'text-gold-accent'
+    },
+    {
+      id: 'meals',
+      title: 'Meals Served',
+      value: 10000,
+      suffix: '+',
+      description: 'Delightful meals cooked with premium love, freshness, and strict hygiene.',
+      icon: Utensils,
+      color: 'text-orange-400'
+    },
+    {
+      id: 'rating',
+      title: 'Google Rating',
+      value: 4.8,
+      suffix: '+',
+      description: 'Loved by city food critics, gastro-bloggers, and premium diners alike.',
+      icon: Star,
       color: 'text-amber-400'
+    },
+    {
+      id: 'organic',
+      title: 'Farm Ingredients',
+      value: 100,
+      suffix: '%',
+      description: 'Sourced daily from certified local sustainable organic cooperatives.',
+      icon: Heart,
+      color: 'text-emerald-400'
     }
   ];
 
   return (
-    <section className="py-20 bg-[#03060f] relative overflow-hidden" id="why-choose-us-section">
-      {/* Visual Ambient Circles */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[500px] rounded-full bg-blue-500/5 blur-3xl pointer-events-none" />
+    <section className="py-20 bg-brand-brown text-white relative overflow-hidden" id="why-choose-us-section">
+      {/* Visual Ambient Decorative Circle */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[500px] rounded-full bg-gold-accent/5 blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header Block */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
           <div className="lg:col-span-7">
-            <div className="inline-block px-3 py-1 rounded-full bg-neon-blue/15 border border-neon-blue/30 text-neon-blue text-xs font-mono tracking-widest uppercase mb-4">
-              Value Proposition
+            <div className="inline-block px-3 py-1 rounded-full bg-gold-accent/15 border border-gold-accent/35 text-gold-accent text-xs font-semibold tracking-widest uppercase mb-4">
+              Our Distinctive Edge
             </div>
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight">
-              Why Global Businesses Trust <span className="text-neon-blue neon-glow-text">Anjali Solutions</span>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight">
+              Why Diners Adore <span className="text-gold-accent italic">The Daily Craving</span>
             </h2>
-            <p className="mt-4 text-slate-300 text-base sm:text-lg max-w-2xl font-light">
-              We stand apart through our commitment to technical excellence, customer transparency, and delivering solutions that yield measurable business growth.
+            <p className="mt-4 text-cream-dark/80 text-sm sm:text-base max-w-2xl font-light leading-relaxed">
+              We stand apart through our devotion to culinary authenticity. We fuse fresh local organic inputs with slow-cooking fire methods to deliver tastes that stay on your mind forever.
             </p>
           </div>
-          <div className="lg:col-span-5 bg-gradient-to-br from-indigo-950/40 to-slate-950 border border-slate-800 rounded-2xl p-6 shadow-xl flex flex-col gap-4">
-            <h4 className="text-white font-semibold text-sm uppercase tracking-wider font-mono">Our core benchmarks:</h4>
+          
+          {/* Benchmarks Card */}
+          <div className="lg:col-span-5 bg-white/5 border border-white/10 rounded-3xl p-6 shadow-xl flex flex-col gap-4 backdrop-blur-sm">
+            <h4 className="text-gold-accent font-semibold text-xs uppercase tracking-wider font-sans">Our culinary promises:</h4>
             <ul className="space-y-3">
               {[
-                'Agile project management cycles',
-                'Transparent cost structures',
-                '24/7 dedicated system monitoring',
-                'Custom tailoring — zero template look-alikes'
+                'Michelin-standard preparation procedures',
+                '100% natural, premium oils and spices',
+                'Zero chemical food colorings or MSG',
+                'Fully sanitized interactive open kitchen'
               ].map((bench, idx) => (
-                <li key={idx} className="flex items-center gap-2.5 text-slate-300 text-sm">
-                  <CheckCircle size={16} className="text-neon-blue shrink-0" />
+                <li key={idx} className="flex items-center gap-2.5 text-cream-dark/95 text-xs sm:text-sm">
+                  <CheckCircle size={15} className="text-gold-accent shrink-0" />
                   {bench}
                 </li>
               ))}
@@ -134,26 +136,31 @@ export default function WhyChooseUs() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="glass-panel rounded-2xl p-6 flex flex-col justify-between items-start border border-slate-800 hover:border-neon-blue/20 transition-all group"
+                className="bg-[#352219]/60 backdrop-blur-sm rounded-3xl p-6 flex flex-col justify-between items-start border border-white/5 hover:border-gold-accent/20 transition-all duration-300 group"
                 id={`stat-card-${stat.id}`}
               >
                 <div className="flex justify-between items-center w-full mb-6">
-                  <div className={`p-2 rounded-xl bg-slate-900 border border-slate-800 ${stat.color} group-hover:scale-110 transition-transform`}>
-                    <IconComp size={20} />
+                  <div className={`p-2.5 rounded-xl bg-brand-brown border border-white/10 ${stat.color} group-hover:scale-105 transition-transform`}>
+                    <IconComp size={18} />
                   </div>
-                  <span className="text-[10px] font-mono text-slate-500 uppercase">AS-STAT-{index+1}</span>
+                  <span className="text-[9px] font-mono text-white/30 uppercase">CRAVE-ST-{index+1}</span>
                 </div>
 
                 <div>
                   <div className="mb-2">
-                    <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+                    {/* Hardcode rating as 4.8 for decimals to display beautifully or standard animation */}
+                    {stat.id === 'rating' ? (
+                      <span className="font-display text-4xl sm:text-5xl font-extrabold text-gold-accent tracking-tight">4.8+</span>
+                    ) : (
+                      <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+                    )}
                   </div>
                   
-                  <h3 className="text-slate-200 font-display font-bold text-base mb-1.5 group-hover:text-neon-blue transition-colors">
+                  <h3 className="text-white font-display font-bold text-base mb-1.5 group-hover:text-gold-accent transition-colors leading-tight">
                     {stat.title}
                   </h3>
                   
-                  <p className="text-slate-400 text-xs leading-relaxed font-light">
+                  <p className="text-cream-dark/70 text-xs leading-relaxed font-light">
                     {stat.description}
                   </p>
                 </div>

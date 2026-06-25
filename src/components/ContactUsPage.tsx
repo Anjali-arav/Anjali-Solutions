@@ -14,9 +14,10 @@ export default function ContactUsPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
-  const companyPhone = '+918911449475';
-  const companyEmail = 'info@anjalisolutions.com';
-  const companyAddress = 'Dwaraka Nagar 1st Lane, Vizag';
+  const restaurantPhone = '+91 8919449475';
+  const rawPhone = '918919449475';
+  const restaurantEmail = 'info@thedailycraving.com';
+  const restaurantAddress = 'Road No-12, Jubilee Hills, Hyderabad';
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -40,79 +41,79 @@ export default function ContactUsPage() {
   };
 
   const handleWhatsAppContact = () => {
-    const text = encodeURIComponent("Hello Anjali Solutions, I would like to get in touch regarding a business solution requirement!");
-    window.open(`https://wa.me/${companyPhone.replace('+', '')}?text=${text}`, '_blank');
+    const text = encodeURIComponent("Hello The Daily Craving, I would like to get in touch regarding a table reservation, private event, or menu inquiry!");
+    window.open(`https://wa.me/${rawPhone}?text=${text}`, '_blank');
   };
 
   return (
-    <div className="py-24 bg-[#060913] min-h-screen relative overflow-hidden" id="contact-us-page-container">
-      {/* Decorative Lights */}
-      <div className="absolute top-1/4 left-1/10 h-80 w-80 rounded-full bg-neon-blue/5 blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/10 h-80 w-80 rounded-full bg-indigo-600/5 blur-3xl pointer-events-none" />
+    <div className="py-20 bg-cream-bg min-h-screen relative overflow-hidden" id="contact-us-page-container">
+      {/* Decorative Warm Backdrops */}
+      <div className="absolute top-1/4 left-1/10 h-80 w-80 rounded-full bg-gold-accent/5 blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/10 h-80 w-80 rounded-full bg-appetite-orange/5 blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Page Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-block px-3 py-1 rounded-full bg-neon-blue/15 border border-neon-blue/30 text-neon-blue text-xs font-mono tracking-widest uppercase mb-4">
+          <div className="inline-block px-3 py-1 rounded-full bg-gold-accent/10 border border-gold-accent/25 text-gold-accent text-xs font-semibold tracking-widest uppercase mb-4">
             Connect with us
           </div>
-          <h1 className="font-display text-4xl sm:text-5xl font-bold text-white tracking-tight leading-tight">
-            Contact <span className="text-neon-blue neon-glow-text">Our Experts</span>
+          <h1 className="font-display text-4xl sm:text-5xl font-bold text-brand-brown tracking-tight leading-tight">
+            Contact <span className="text-gold-accent">The Daily Craving</span>
           </h1>
-          <p className="mt-4 text-slate-400 text-sm sm:text-base">
-            Have a project concept or business query? Send us a message or contact us directly on WhatsApp. Our Dwaraka Nagar team is ready to respond.
+          <p className="mt-4 text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+            Ready to experience unforgettable gastronomy? Send us an inquiry, give us a call, or drop a message on WhatsApp. Our Jubilee Hills team is at your absolute service.
           </p>
         </div>
 
         {/* Contact Page Grid layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
           
-          {/* Column 1: Contact info & Google Map (5 Columns) */}
+          {/* Column 1: Contact info (5 Columns) */}
           <div className="lg:col-span-5 space-y-6 flex flex-col justify-between">
             <div className="space-y-6">
-              <h2 className="font-display text-2xl font-bold text-white">
-                Contact <span className="text-neon-blue">Information</span>
+              <h2 className="font-display text-2xl font-bold text-brand-brown">
+                Location & <span className="text-gold-accent">Reservations</span>
               </h2>
 
               <div className="space-y-4">
-                {/* Company Name / Logo */}
-                <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800 flex items-center gap-4">
-                  <div className="h-10 w-10 rounded-lg bg-neon-blue/10 border border-neon-blue/20 flex items-center justify-center text-neon-blue">
+                {/* Address */}
+                <div className="p-4 rounded-2xl bg-white border border-brand-brown/5 shadow-sm flex items-center gap-4">
+                  <div className="h-10 w-10 rounded-xl bg-gold-accent/10 flex items-center justify-center text-gold-accent">
                     <MapPin size={18} />
                   </div>
                   <div>
-                    <h4 className="text-slate-400 text-xs font-mono uppercase">Company Address</h4>
-                    <p className="text-white text-sm font-semibold">{companyAddress}</p>
-                    <p className="text-slate-500 text-[11px]">Dwaraka Nagar 1st Lane, Vizag, AP, India</p>
+                    <h4 className="text-slate-400 text-[10px] font-bold uppercase tracking-wider">Restaurant Address</h4>
+                    <p className="text-brand-brown text-sm font-semibold mt-0.5">{restaurantAddress}</p>
+                    <p className="text-slate-500 text-[11px]">Jubilee Hills, Hyderabad, TS, India</p>
                   </div>
                 </div>
 
-                {/* Telephone */}
-                <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800 flex items-center gap-4">
-                  <div className="h-10 w-10 rounded-lg bg-neon-blue/10 border border-neon-blue/20 flex items-center justify-center text-neon-blue">
+                {/* Phone */}
+                <div className="p-4 rounded-2xl bg-white border border-brand-brown/5 shadow-sm flex items-center gap-4">
+                  <div className="h-10 w-10 rounded-xl bg-gold-accent/10 flex items-center justify-center text-gold-accent">
                     <Phone size={18} />
                   </div>
                   <div>
-                    <h4 className="text-slate-400 text-xs font-mono uppercase">Call Support</h4>
-                    <a href={`tel:${companyPhone}`} className="text-white hover:text-neon-blue transition-colors text-sm font-semibold block">
-                      {companyPhone}
+                    <h4 className="text-slate-400 text-[10px] font-bold uppercase tracking-wider">Call Hotline</h4>
+                    <a href={`tel:${rawPhone}`} className="text-brand-brown hover:text-gold-accent transition-colors text-sm font-semibold block mt-0.5">
+                      {restaurantPhone}
                     </a>
-                    <span className="text-slate-500 text-[11px]">Mon - Sat (9:00 AM - 7:00 PM)</span>
+                    <span className="text-slate-500 text-[11px]">Open Daily (11:00 AM - 11:30 PM)</span>
                   </div>
                 </div>
 
                 {/* Email Address */}
-                <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800 flex items-center gap-4">
-                  <div className="h-10 w-10 rounded-lg bg-neon-blue/10 border border-neon-blue/20 flex items-center justify-center text-neon-blue">
+                <div className="p-4 rounded-2xl bg-white border border-brand-brown/5 shadow-sm flex items-center gap-4">
+                  <div className="h-10 w-10 rounded-xl bg-gold-accent/10 flex items-center justify-center text-gold-accent">
                     <Mail size={18} />
                   </div>
                   <div>
-                    <h4 className="text-slate-400 text-xs font-mono uppercase">Official Email</h4>
-                    <a href={`mailto:${companyEmail}`} className="text-white hover:text-neon-blue transition-colors text-sm font-semibold block">
-                      {companyEmail}
+                    <h4 className="text-slate-400 text-[10px] font-bold uppercase tracking-wider">General Inquiry Email</h4>
+                    <a href={`mailto:${restaurantEmail}`} className="text-brand-brown hover:text-gold-accent transition-colors text-sm font-semibold block mt-0.5">
+                      {restaurantEmail}
                     </a>
-                    <span className="text-slate-500 text-[11px]">Fast response within 12 hours</span>
+                    <span className="text-slate-500 text-[11px]">We reply within a couple of hours</span>
                   </div>
                 </div>
               </div>
@@ -120,34 +121,34 @@ export default function ContactUsPage() {
               {/* Direct WhatsApp Action Button */}
               <button
                 onClick={handleWhatsAppContact}
-                className="w-full py-3.5 px-6 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold transition-all shadow-[0_0_15px_rgba(16,185,129,0.3)] flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full py-3.5 px-6 rounded-xl bg-soft-green hover:bg-soft-green/90 text-white font-bold transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer"
                 id="contact-whatsapp-btn"
               >
-                <MessageSquare className="fill-current" size={18} />
-                WhatsApp Direct Chat
+                <MessageSquare className="fill-current text-white" size={18} />
+                Message Us on WhatsApp
               </button>
             </div>
 
             {/* Quick response note */}
-            <div className="p-4 bg-slate-900/40 rounded-xl border border-slate-800/80 text-xs text-slate-400 flex items-center gap-3">
-              <Clock className="text-neon-blue shrink-0 animate-pulse" size={16} />
-              <span>We value your time. All forms submitted are logged and assigned to a consultant within 15 minutes.</span>
+            <div className="p-4 bg-white/60 rounded-2xl border border-brand-brown/5 text-xs text-slate-500 flex items-center gap-3">
+              <Clock className="text-gold-accent shrink-0 animate-pulse" size={16} />
+              <span>Table reservation inquiries submitted online are verified by our front desk within 10 minutes.</span>
             </div>
           </div>
 
           {/* Column 2: Interactive Contact Form (7 Columns) */}
           <div className="lg:col-span-7">
-            <div className="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden" id="contact-form-container">
-              <div className="absolute top-0 left-0 h-1.5 w-full bg-gradient-to-r from-neon-blue to-indigo-600" />
+            <div className="bg-white rounded-3xl p-6 md:p-8 border border-brand-brown/5 shadow-sm relative overflow-hidden" id="contact-form-container">
+              <div className="absolute top-0 left-0 h-1.5 w-full bg-gradient-to-r from-gold-accent to-appetite-orange" />
               
               {!isSuccess ? (
                 <>
                   <div className="mb-6">
-                    <h2 className="font-display text-2xl font-bold text-white flex items-center gap-2">
-                      Send <span className="text-neon-blue">Inquiry Message</span>
+                    <h2 className="font-display text-2xl font-bold text-brand-brown flex items-center gap-2">
+                      Send Us <span className="text-gold-accent">A Message</span>
                     </h2>
-                    <p className="text-slate-400 text-xs sm:text-sm mt-1.5">
-                      Submit your project blueprints, and we will prepare a complimentary quote for your evaluation.
+                    <p className="text-slate-500 text-xs sm:text-sm mt-1.5">
+                      Have a catering request or private booking query? Drop us a line.
                     </p>
                   </div>
 
@@ -155,62 +156,62 @@ export default function ContactUsPage() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       {/* Name */}
                       <div>
-                        <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5">
+                        <label className="block text-xs font-semibold uppercase tracking-wider text-brand-brown mb-1.5">
                           Your Name
                         </label>
                         <input
                           type="text"
                           required
-                          placeholder="Your Name"
+                          placeholder="E.g. John Doe"
                           value={formData.name}
                           onChange={e => setFormData({ ...formData, name: e.target.value })}
-                          className="w-full px-4 py-2.5 bg-slate-900/60 border border-slate-700/70 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-neon-blue focus:ring-1 focus:ring-neon-blue transition-all text-sm"
+                          className="w-full px-4 py-2.5 bg-cream-bg/40 border border-slate-200 rounded-xl text-brand-brown placeholder-slate-400 focus:outline-none focus:border-gold-accent focus:ring-1 focus:ring-gold-accent transition-all text-sm"
                         />
                       </div>
 
                       {/* Email */}
                       <div>
-                        <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5">
+                        <label className="block text-xs font-semibold uppercase tracking-wider text-brand-brown mb-1.5">
                           Email Address
                         </label>
                         <input
                           type="email"
                           required
-                          placeholder="email@example.com"
+                          placeholder="E.g. john@example.com"
                           value={formData.email}
                           onChange={e => setFormData({ ...formData, email: e.target.value })}
-                          className="w-full px-4 py-2.5 bg-slate-900/60 border border-slate-700/70 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-neon-blue focus:ring-1 focus:ring-neon-blue transition-all text-sm"
+                          className="w-full px-4 py-2.5 bg-cream-bg/40 border border-slate-200 rounded-xl text-brand-brown placeholder-slate-400 focus:outline-none focus:border-gold-accent focus:ring-1 focus:ring-gold-accent transition-all text-sm"
                         />
                       </div>
                     </div>
 
                     {/* Phone */}
                     <div>
-                      <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5">
+                      <label className="block text-xs font-semibold uppercase tracking-wider text-brand-brown mb-1.5">
                         Phone Number
                       </label>
                       <input
                         type="tel"
                         required
-                        placeholder="+91 XXXXX XXXXX"
+                        placeholder="E.g. +91 89194 49475"
                         value={formData.phone}
                         onChange={e => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full px-4 py-2.5 bg-slate-900/60 border border-slate-700/70 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-neon-blue focus:ring-1 focus:ring-neon-blue transition-all text-sm"
+                        className="w-full px-4 py-2.5 bg-cream-bg/40 border border-slate-200 rounded-xl text-brand-brown placeholder-slate-400 focus:outline-none focus:border-gold-accent focus:ring-1 focus:ring-gold-accent transition-all text-sm"
                       />
                     </div>
 
                     {/* Message */}
                     <div>
-                      <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5">
-                        Brief Message
+                      <label className="block text-xs font-semibold uppercase tracking-wider text-brand-brown mb-1.5">
+                        Your Inquiry Message
                       </label>
                       <textarea
                         required
                         rows={4}
-                        placeholder="Please describe your software, web design, or digital optimization goals..."
+                        placeholder="Please elaborate on your request (dates, size of gathering, menu customisations)..."
                         value={formData.message}
                         onChange={e => setFormData({ ...formData, message: e.target.value })}
-                        className="w-full px-4 py-2.5 bg-slate-900/60 border border-slate-700/70 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-neon-blue focus:ring-1 focus:ring-neon-blue transition-all text-sm resize-none"
+                        className="w-full px-4 py-2.5 bg-cream-bg/40 border border-slate-200 rounded-xl text-brand-brown placeholder-slate-400 focus:outline-none focus:border-gold-accent focus:ring-1 focus:ring-gold-accent transition-all text-sm resize-none"
                       />
                     </div>
 
@@ -219,17 +220,17 @@ export default function ContactUsPage() {
                       whileTap={{ scale: 0.98 }}
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full bg-gradient-to-r from-neon-blue to-cyan-500 hover:from-cyan-400 hover:to-neon-blue text-slate-950 font-bold py-3.5 px-6 rounded-xl transition-all shadow-[0_0_15px_rgba(0,240,255,0.2)] flex items-center justify-center gap-2 cursor-pointer"
+                      className="w-full bg-gradient-to-r from-gold-accent to-appetite-orange hover:from-appetite-orange hover:to-gold-accent text-white font-bold py-3.5 px-6 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer"
                     >
                       {isSubmitting ? (
                         <>
-                          <div className="h-5 w-5 border-2 border-slate-950 border-t-transparent rounded-full animate-spin" />
+                          <div className="h-5 w-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
                           Submitting...
                         </>
                       ) : (
                         <>
-                          <Send size={16} />
-                          Send Message
+                          <Send size={15} />
+                          Send Inquiry Message
                         </>
                       )}
                     </motion.button>
@@ -241,16 +242,16 @@ export default function ContactUsPage() {
                   animate={{ opacity: 1, scale: 1 }}
                   className="py-10 text-center flex flex-col items-center justify-center"
                 >
-                  <div className="rounded-full bg-neon-blue/10 p-4 text-neon-blue mb-4 shadow-[0_0_15px_rgba(0,240,255,0.15)] animate-bounce">
+                  <div className="rounded-full bg-soft-green-bg p-4 text-soft-green mb-4 shadow-sm animate-bounce">
                     <CheckCircle2 size={44} />
                   </div>
-                  <h3 className="font-display text-2xl font-bold text-white mb-2">Message Dispatched!</h3>
-                  <p className="text-slate-300 text-sm max-w-sm mb-6 leading-relaxed">
-                    Thank you <span className="text-white font-medium">{formData.name}</span>! Our consulting wing in Dwaraka Nagar has logged your message. We will reach out to you within 1-2 hours.
+                  <h3 className="font-display text-2xl font-bold text-brand-brown mb-2">Inquiry Transmitted!</h3>
+                  <p className="text-slate-600 text-sm max-w-sm mb-6 leading-relaxed">
+                    Thank you, <span className="text-brand-brown font-semibold">{formData.name}</span>. Our Jubilee Hills management desk has registered your message. We will reach back to you shortly.
                   </p>
                   <button
                     onClick={resetForm}
-                    className="px-6 py-2.5 bg-slate-800 hover:bg-slate-700 text-white font-semibold rounded-xl transition-all"
+                    className="px-6 py-2.5 bg-brand-brown hover:bg-brand-brown-light text-white font-semibold rounded-xl transition-all"
                   >
                     Send another message
                   </button>
@@ -261,24 +262,24 @@ export default function ContactUsPage() {
 
         </div>
 
-        {/* Google Maps Section showing Vizag location */}
+        {/* Google Maps Section showing Hyderabad Jubilee Hills location */}
         <div className="space-y-6" id="google-maps-section">
           <div className="flex items-center gap-2">
-            <div className="p-2 rounded-xl bg-neon-blue/10 text-neon-blue border border-neon-blue/20">
+            <div className="p-2 rounded-xl bg-gold-accent/10 text-gold-accent border border-gold-accent/20">
               <Map size={18} />
             </div>
-            <h3 className="font-display text-xl font-bold text-white">
-              Our Dwaraka Nagar <span className="text-neon-blue">Location</span>
+            <h3 className="font-display text-xl font-bold text-brand-brown">
+              Our Jubilee Hills <span className="text-gold-accent">Location Map</span>
             </h3>
           </div>
 
-          <div className="w-full h-96 rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-950 shadow-2xl relative">
+          <div className="w-full h-96 rounded-3xl overflow-hidden border border-brand-brown/10 bg-white shadow-md relative">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3800.5891410948956!2d83.3005886!3d17.7214917!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a39433e5c9a0af1%3A0x6b6fa38b1d9bfcf0!2sDwaraka%20Nagar%2C%20Visakhapatnam%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
-              title="Anjali Solutions Location Map in Vizag"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.6631892864317!2d78.3970221!3d17.4285191!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb913508eb675f%3A0xc6cb5a6f236058be!2sRoad%20No.%2012%2C%20Jubilee%20Hills%2C%20Hyderabad%2C%20Telangana%20500033!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+              title="The Daily Craving Location Map in Jubilee Hills Hyderabad"
               width="100%"
               height="100%"
-              style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) contrast(1.1) brightness(0.95)' }}
+              style={{ border: 0 }}
               allowFullScreen={true}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

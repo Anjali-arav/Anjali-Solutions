@@ -1,34 +1,27 @@
-export interface Service {
-  id: string;
-  iconName: string;
-  title: string;
-  description: string;
-}
-
-export interface Project {
+export interface FoodItem {
   id: string;
   name: string;
   description: string;
-  category: 'Websites' | 'Applications' | 'Digital Solutions';
-  technologies: string[];
+  price: string;
+  rating: number;
   imageUrl: string;
-  demoUrl?: string;
+  category: 'Starters' | 'Main Course' | 'Desserts' | 'Drinks';
+  isSpecial: boolean;
 }
 
-export interface HeroSlide {
-  id: number;
-  title: string;
-  description: string;
-  buttonText: string;
-  actionType: 'get-started' | 'contact';
-  imageUrl: string;
+export interface TableBooking {
+  customerName: string;
+  phone: string;
+  guests: number;
+  date: string;
+  time: string;
+  specialRequest: string;
 }
 
-export interface AppointmentFormInput {
-  fullName: string;
+export interface CallRequest {
+  name: string;
   phone: string;
   email: string;
-  service: string;
   date: string;
   message: string;
 }

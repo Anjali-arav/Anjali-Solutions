@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Phone, MessageCircleCode, ArrowRight, Zap, CheckCircle2, ChevronRight, Sparkles, Building, Globe, MessageSquare } from 'lucide-react';
-
-// Import Types
-import { Service } from './types';
+import { Phone, MessageSquare, ArrowRight, Award, UtensilsCrossed, Star } from 'lucide-react';
 
 // Import Components
 import Navbar from './components/Navbar';
@@ -12,43 +9,38 @@ import ServicesSection from './components/ServicesSection';
 import WhyChooseUs from './components/WhyChooseUs';
 import ProjectsPage from './components/ProjectsPage';
 import AboutUsPage from './components/AboutUsPage';
+import BookTablePage from './components/BookTablePage';
 import ContactUsPage from './components/ContactUsPage';
 import Footer from './components/Footer';
-import AppointmentModal from './components/AppointmentModal';
+import CallRequestModal from './components/CallRequestModal';
 
 export default function App() {
   const [currentTab, setTab] = useState<string>('home');
-  const [isAppointmentOpen, setIsAppointmentOpen] = useState<boolean>(false);
-  const [selectedService, setSelectedService] = useState<string>('');
+  const [isCallRequestOpen, setIsCallRequestOpen] = useState<boolean>(false);
 
-  const companyPhone = '+918911449475';
+  const restaurantPhoneRaw = '918919449475';
+  const restaurantPhoneFormatted = '+91 89194 49475';
 
-  const handleOpenAppointment = () => {
-    setSelectedService('');
-    setIsAppointmentOpen(true);
-  };
-
-  const handleOpenAppointmentWithService = (serviceName: string) => {
-    setSelectedService(serviceName);
-    setIsAppointmentOpen(true);
+  const handleOpenCallRequest = () => {
+    setIsCallRequestOpen(true);
   };
 
   const handleFloatingWhatsApp = () => {
-    const text = encodeURIComponent("Hello Anjali Solutions, I am visiting your website and would like to ask a few questions!");
-    window.open(`https://wa.me/${companyPhone.replace('+', '')}?text=${text}`, '_blank');
+    const text = encodeURIComponent("Hello The Daily Craving, I am visiting your website and would like to ask a few questions regarding reservations and menus!");
+    window.open(`https://wa.me/${restaurantPhoneRaw}?text=${text}`, '_blank');
   };
 
   return (
-    <div className="relative min-h-screen bg-[#060913] selection:bg-neon-blue selection:text-slate-950 font-sans" id="app-root">
+    <div className="relative min-h-screen bg-cream-bg selection:bg-gold-accent selection:text-white font-sans" id="app-root">
       
-      {/* Background Grid Accent Lines */}
-      <div className="absolute inset-x-0 top-0 h-[1000px] bg-[radial-gradient(ellipse_at_top,rgba(0,240,255,0.06),transparent_60%)] pointer-events-none z-0" />
+      {/* Decorative Top Accent Overlay */}
+      <div className="absolute inset-x-0 top-0 h-[1000px] bg-[radial-gradient(ellipse_at_top,rgba(217,119,6,0.08),transparent_60%)] pointer-events-none z-0" />
 
       {/* Sticky Translucent Header */}
       <Navbar
         currentTab={currentTab}
         setTab={setTab}
-        onOpenAppointment={handleOpenAppointment}
+        onOpenCallRequest={handleOpenCallRequest}
       />
 
       {/* Main Multi-Page Content Handler */}
@@ -64,55 +56,50 @@ export default function App() {
               id="home-view"
             >
               {/* 2-Slide Hero Slider */}
-              <HeroSlider
-                onOpenAppointment={handleOpenAppointment}
-                setTab={setTab}
-              />
+              <HeroSlider setTab={setTab} />
 
-              {/* 6 Services Section */}
-              <ServicesSection
-                onOpenAppointmentWithService={handleOpenAppointmentWithService}
-              />
+              {/* About Us Segment */}
+              <AboutUsPage />
+
+              {/* Today Specials Preview (ServicesSection) */}
+              <ServicesSection />
 
               {/* Why Choose Us Section with Animated Counters */}
               <WhyChooseUs />
 
-              {/* About Preview Section */}
-              <section className="py-20 bg-[#060913] relative overflow-hidden" id="about-preview-section">
-                {/* Glowing Backlight */}
-                <div className="absolute top-1/2 right-0 -translate-y-1/2 h-80 w-80 rounded-full bg-neon-blue/5 blur-3xl pointer-events-none" />
-                
+              {/* Premium Experience Callout */}
+              <section className="py-16 bg-cream-bg" id="experience-callout">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                  <div className="glass-panel rounded-3xl p-8 md:p-12 border border-slate-800 relative overflow-hidden">
-                    {/* High tech glow accents */}
-                    <div className="absolute top-0 left-0 h-1.5 w-48 bg-gradient-to-r from-neon-blue to-indigo-600" />
+                  <div className="bg-[#2A1A14] text-white rounded-3xl p-8 md:p-12 shadow-xl border border-white/5 relative overflow-hidden">
+                    {/* Corner decorative light */}
+                    <div className="absolute top-0 left-0 h-1.5 w-48 bg-gradient-to-r from-gold-accent to-appetite-orange" />
                     
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
                       <div className="lg:col-span-8 space-y-4">
-                        <div className="inline-flex items-center gap-1.5 text-neon-blue text-xs font-mono uppercase tracking-widest">
-                          <Building size={14} />
-                          Local Presence, Elite Standards
+                        <div className="inline-flex items-center gap-1.5 text-gold-accent text-xs font-semibold uppercase tracking-wider">
+                          <Star size={14} className="fill-gold-accent" />
+                          Experience Pure Culinary Artistry
                         </div>
-                        <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight">
-                          Innovative Solutions Crafted in <span className="text-neon-blue">Vizag</span>
+                        <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight">
+                          Savor Unforgettable Tastes In <span className="text-gold-accent">Hyderabad</span>
                         </h2>
-                        <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-light">
-                          Anjali Solutions is a professional technology and business solutions company based in Vizag. We help businesses grow with innovative digital solutions, creative designs and advanced technology.
+                        <p className="text-cream-dark/90 text-sm sm:text-base leading-relaxed font-light">
+                          Our dishes are handcrafted with immense detail and love. From the sizzling spices of our slow-cooked claypot mutton biryani to the sweet decadence of our molten Belgian chocolate, we bring you culinary perfection.
                         </p>
                       </div>
 
                       <div className="lg:col-span-4 flex justify-start lg:justify-end">
                         <motion.button
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
+                          whileHover={{ scale: 1.03 }}
+                          whileTap={{ scale: 0.97 }}
                           onClick={() => {
-                            setTab('about');
+                            setTab('foods');
                             window.scrollTo({ top: 0, behavior: 'smooth' });
                           }}
-                          className="px-8 py-4 bg-slate-900 hover:bg-neon-blue hover:text-slate-950 text-white font-bold rounded-2xl border border-slate-800 hover:border-transparent transition-all text-sm flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-black/40"
-                          id="about-preview-read-more"
+                          className="px-8 py-4 bg-gold-accent hover:bg-gold-accent-hover text-white font-bold rounded-2xl transition-all text-sm flex items-center justify-center gap-2 cursor-pointer shadow-md"
+                          id="home-view-menu-btn"
                         >
-                          Read More About Us
+                          Explore Our Menu
                           <ArrowRight size={16} />
                         </motion.button>
                       </div>
@@ -123,29 +110,45 @@ export default function App() {
             </motion.div>
           )}
 
-          {currentTab === 'about' && (
+          {currentTab === 'specials' && (
             <motion.div
-              key="about"
+              key="specials"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.4 }}
-              id="about-view"
+              id="specials-view"
+              className="pt-12"
             >
-              <AboutUsPage />
+              <ServicesSection />
             </motion.div>
           )}
 
-          {currentTab === 'projects' && (
+          {currentTab === 'foods' && (
             <motion.div
-              key="projects"
+              key="foods"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.4 }}
-              id="projects-view"
+              id="foods-view"
+              className="pt-12"
             >
-              <ProjectsPage onOpenAppointment={handleOpenAppointment} />
+              <ProjectsPage />
+            </motion.div>
+          )}
+
+          {currentTab === 'book' && (
+            <motion.div
+              key="book"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4 }}
+              id="book-view"
+              className="pt-12"
+            >
+              <BookTablePage />
             </motion.div>
           )}
 
@@ -157,6 +160,7 @@ export default function App() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.4 }}
               id="contact-view"
+              className="pt-12"
             >
               <ContactUsPage />
             </motion.div>
@@ -164,14 +168,13 @@ export default function App() {
         </AnimatePresence>
       </main>
 
-      {/* Premium Corporate Footer */}
+      {/* Premium Food-Focused Footer */}
       <Footer setTab={setTab} />
 
-      {/* Global Interactive Appointment Modal */}
-      <AppointmentModal
-        isOpen={isAppointmentOpen}
-        onClose={() => setIsAppointmentOpen(false)}
-        defaultService={selectedService}
+      {/* Call Request Popup Modal */}
+      <CallRequestModal
+        isOpen={isCallRequestOpen}
+        onClose={() => setIsCallRequestOpen(false)}
       />
 
       {/* Floating Action Elements (Call Now & WhatsApp) */}
@@ -179,28 +182,28 @@ export default function App() {
         
         {/* Floating Call Now Button */}
         <motion.a
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          href={`tel:${companyPhone}`}
-          className="h-12 w-12 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white flex items-center justify-center shadow-lg transition-all border border-indigo-400/20"
-          title="Call Anjali Solutions"
+          whileHover={{ scale: 1.08 }}
+          whileTap={{ scale: 0.92 }}
+          href={`tel:${restaurantPhoneRaw}`}
+          className="h-12 w-12 rounded-full bg-gold-accent hover:bg-gold-accent-hover text-white flex items-center justify-center shadow-lg transition-all border border-white/10"
+          title="Call The Daily Craving"
           id="floating-call-now"
         >
-          <Phone size={20} />
+          <Phone size={18} />
         </motion.a>
 
         {/* Floating WhatsApp Chat Widget */}
         <motion.button
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
+          whileHover={{ scale: 1.08 }}
+          whileTap={{ scale: 0.92 }}
           onClick={handleFloatingWhatsApp}
-          className="h-12 w-12 rounded-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 flex items-center justify-center shadow-lg transition-all relative group cursor-pointer border border-emerald-400/20"
+          className="h-12 w-12 rounded-full bg-soft-green hover:bg-soft-green/90 text-white flex items-center justify-center shadow-lg transition-all relative group cursor-pointer border border-white/10"
           title="Direct WhatsApp Chat"
           id="floating-whatsapp-widget"
         >
           {/* Ripple pulse wave animation */}
-          <span className="absolute inset-0 rounded-full bg-emerald-500 opacity-20 group-hover:animate-ping" />
-          <MessageCircleCode size={22} className="relative z-10" />
+          <span className="absolute inset-0 rounded-full bg-soft-green opacity-25 group-hover:animate-ping" />
+          <MessageSquare size={18} className="relative z-10 fill-current text-white" />
         </motion.button>
       </div>
 

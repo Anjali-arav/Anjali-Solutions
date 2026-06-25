@@ -1,5 +1,5 @@
 import React from 'react';
-import { Cpu, Facebook, Instagram, Linkedin, Twitter, Phone, Mail, MapPin, ArrowUp } from 'lucide-react';
+import { UtensilsCrossed, Facebook, Instagram, MessageSquare, Phone, Mail, MapPin, ArrowUp, Clock } from 'lucide-react';
 
 interface FooterProps {
   setTab: (tab: string) => void;
@@ -14,16 +14,15 @@ export default function Footer({ setTab }: FooterProps) {
   };
 
   const socialLinks = [
-    { icon: Facebook, href: 'https://facebook.com', label: 'Facebook' },
     { icon: Instagram, href: 'https://instagram.com', label: 'Instagram' },
-    { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-    { icon: Twitter, href: 'https://twitter.com', label: 'Twitter' }
+    { icon: Facebook, href: 'https://facebook.com', label: 'Facebook' },
+    { icon: MessageSquare, href: 'https://wa.me/918919449475', label: 'WhatsApp' }
   ];
 
   return (
-    <footer className="bg-[#03060d] border-t border-[rgba(0,240,255,0.06)] pt-16 pb-8 text-slate-400 relative overflow-hidden" id="main-footer">
-      {/* Accent glow behind footer */}
-      <div className="absolute bottom-0 right-1/4 h-64 w-64 bg-neon-blue/5 rounded-full blur-3xl pointer-events-none" />
+    <footer className="bg-[#2A1A14] border-t border-white/5 pt-16 pb-8 text-cream-dark/80 relative overflow-hidden" id="main-footer">
+      {/* Soft Gold backdrop ambient accent */}
+      <div className="absolute bottom-0 right-1/4 h-64 w-64 bg-gold-accent/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -32,17 +31,17 @@ export default function Footer({ setTab }: FooterProps) {
           
           {/* Brand Column */}
           <div className="space-y-4">
-            <div className="flex items-center gap-2 cursor-pointer" onClick={() => handleLinkClick('home')}>
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-neon-blue to-indigo-600 shadow-[0_0_10px_rgba(0,240,255,0.25)]">
-                <Cpu className="text-white h-5 w-5" />
+            <div className="flex items-center gap-2.5 cursor-pointer" onClick={() => handleLinkClick('home')}>
+              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gold-accent text-white">
+                <UtensilsCrossed size={16} />
               </div>
               <span className="font-display text-lg font-bold tracking-tight text-white">
-                Anjali <span className="text-neon-blue">Solutions</span>
+                The Daily <span className="text-gold-accent font-semibold">Craving</span>
               </span>
             </div>
             
-            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed font-light">
-              We leverage future-ready technological frameworks to transform conceptual business ideas into production-ready full-scale web platforms.
+            <p className="text-xs sm:text-sm text-cream-dark/70 leading-relaxed font-light">
+              Experience modern luxury dining, authentic recipes, and unparalleled hospitality in the heart of Jubilee Hills, Hyderabad.
             </p>
 
             {/* Social Icons */}
@@ -55,7 +54,7 @@ export default function Footer({ setTab }: FooterProps) {
                     href={soc.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="h-8 w-8 rounded-lg border border-slate-800 bg-slate-900/60 hover:bg-neon-blue hover:text-slate-950 hover:border-transparent text-slate-400 transition-all flex items-center justify-center cursor-pointer"
+                    className="h-8.5 w-8.5 rounded-xl border border-white/10 bg-white/5 hover:bg-gold-accent hover:text-white hover:border-transparent text-cream-dark transition-all flex items-center justify-center cursor-pointer"
                     aria-label={soc.label}
                   >
                     <IconComp size={15} />
@@ -67,89 +66,103 @@ export default function Footer({ setTab }: FooterProps) {
 
           {/* Quick Links Column */}
           <div>
-            <h3 className="text-white text-xs font-mono font-bold uppercase tracking-wider mb-5 pb-2 border-b border-slate-800 w-1/3">
+            <h3 className="text-gold-accent text-xs font-semibold uppercase tracking-widest mb-5 pb-2 border-b border-white/10 w-2/5">
               Quick Links
             </h3>
             <ul className="space-y-2.5 text-xs sm:text-sm">
               <li>
                 <button 
                   onClick={() => handleLinkClick('home')}
-                  className="hover:text-neon-blue transition-colors cursor-pointer text-slate-400 font-light flex items-center gap-1 group"
+                  className="hover:text-gold-accent transition-colors cursor-pointer text-cream-dark/80 font-medium flex items-center gap-2 group"
                 >
-                  <span className="h-1.5 w-1.5 bg-slate-800 group-hover:bg-neon-blue rounded-full transition-colors" />
+                  <span className="h-1 w-1 bg-white/20 group-hover:bg-gold-accent rounded-full transition-colors" />
                   Home
                 </button>
               </li>
               <li>
                 <button 
-                  onClick={() => handleLinkClick('about')}
-                  className="hover:text-neon-blue transition-colors cursor-pointer text-slate-400 font-light flex items-center gap-1 group"
+                  onClick={() => handleLinkClick('specials')}
+                  className="hover:text-gold-accent transition-colors cursor-pointer text-cream-dark/80 font-medium flex items-center gap-2 group"
                 >
-                  <span className="h-1.5 w-1.5 bg-slate-800 group-hover:bg-neon-blue rounded-full transition-colors" />
-                  About Us
+                  <span className="h-1 w-1 bg-white/20 group-hover:bg-gold-accent rounded-full transition-colors" />
+                  Today Specials
                 </button>
               </li>
               <li>
                 <button 
-                  onClick={() => handleLinkClick('projects')}
-                  className="hover:text-neon-blue transition-colors cursor-pointer text-slate-400 font-light flex items-center gap-1 group"
+                  onClick={() => handleLinkClick('foods')}
+                  className="hover:text-gold-accent transition-colors cursor-pointer text-cream-dark/80 font-medium flex items-center gap-2 group"
                 >
-                  <span className="h-1.5 w-1.5 bg-slate-800 group-hover:bg-neon-blue rounded-full transition-colors" />
-                  Our Projects
+                  <span className="h-1 w-1 bg-white/20 group-hover:bg-gold-accent rounded-full transition-colors" />
+                  Our Foods Menu
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => handleLinkClick('book')}
+                  className="hover:text-gold-accent transition-colors cursor-pointer text-cream-dark/80 font-medium flex items-center gap-2 group"
+                >
+                  <span className="h-1 w-1 bg-white/20 group-hover:bg-gold-accent rounded-full transition-colors" />
+                  Book Table
                 </button>
               </li>
               <li>
                 <button 
                   onClick={() => handleLinkClick('contact')}
-                  className="hover:text-neon-blue transition-colors cursor-pointer text-slate-400 font-light flex items-center gap-1 group"
+                  className="hover:text-gold-accent transition-colors cursor-pointer text-cream-dark/80 font-medium flex items-center gap-2 group"
                 >
-                  <span className="h-1.5 w-1.5 bg-slate-800 group-hover:bg-neon-blue rounded-full transition-colors" />
+                  <span className="h-1 w-1 bg-white/20 group-hover:bg-gold-accent rounded-full transition-colors" />
                   Contact Us
                 </button>
               </li>
             </ul>
           </div>
 
-          {/* Office Contact Column */}
+          {/* Contact Details Column */}
           <div>
-            <h3 className="text-white text-xs font-mono font-bold uppercase tracking-wider mb-5 pb-2 border-b border-slate-800 w-1/3">
+            <h3 className="text-gold-accent text-xs font-semibold uppercase tracking-widest mb-5 pb-2 border-b border-white/10 w-2/5">
               Contact Detail
             </h3>
-            <ul className="space-y-3.5 text-xs sm:text-sm text-slate-400">
+            <ul className="space-y-3.5 text-xs sm:text-sm text-cream-dark/80">
               <li className="flex items-start gap-2.5">
-                <Phone size={15} className="text-neon-blue shrink-0 mt-0.5" />
-                <a href="tel:+918911449475" className="hover:text-neon-blue transition-colors font-mono">
-                  +91 8911449475
+                <Phone size={15} className="text-gold-accent shrink-0 mt-0.5" />
+                <a href="tel:+918919449475" className="hover:text-gold-accent transition-colors font-semibold">
+                  +91 89194 49475
                 </a>
               </li>
               <li className="flex items-start gap-2.5">
-                <Mail size={15} className="text-neon-blue shrink-0 mt-0.5" />
-                <a href="mailto:info@anjalisolutions.com" className="hover:text-neon-blue transition-colors font-mono break-all">
-                  info@anjalisolutions.com
+                <Mail size={15} className="text-gold-accent shrink-0 mt-0.5" />
+                <a href="mailto:info@thedailycraving.com" className="hover:text-gold-accent transition-colors break-all">
+                  info@thedailycraving.com
                 </a>
               </li>
               <li className="flex items-start gap-2.5">
-                <MapPin size={15} className="text-neon-blue shrink-0 mt-0.5" />
+                <MapPin size={15} className="text-gold-accent shrink-0 mt-0.5" />
                 <span className="font-light">
-                  Dwaraka Nagar 1st Lane, Vizag, AP, India
+                  Road No-12, Jubilee Hills, Hyderabad
                 </span>
               </li>
             </ul>
           </div>
 
-          {/* Vizag Branch Column */}
+          {/* Opening Hours Column */}
           <div>
-            <h3 className="text-white text-xs font-mono font-bold uppercase tracking-wider mb-5 pb-2 border-b border-slate-800 w-1/3">
-              HQ Location
+            <h3 className="text-gold-accent text-xs font-semibold uppercase tracking-widest mb-5 pb-2 border-b border-white/10 w-2/5">
+              Opening Hours
             </h3>
             <div className="space-y-3">
-              <p className="text-xs text-slate-400 leading-relaxed font-light">
-                Our main consulting workspace is open for walkthroughs and physical consultations:
+              <p className="text-xs text-cream-dark/70 leading-relaxed font-light">
+                We welcome gourmet enthusiasts daily. Join us for a memorable fine dining experience:
               </p>
-              <div className="p-3 bg-slate-900/60 rounded-xl border border-slate-800 text-[11px] font-mono">
-                <span className="text-neon-blue font-bold">Dwaraka Nagar branch:</span>
-                <br />
-                Opposite local business hub, Vizag.
+              <div className="p-3 bg-white/5 rounded-2xl border border-white/5 text-[11px] flex items-start gap-2">
+                <Clock size={14} className="text-gold-accent shrink-0 mt-0.5" />
+                <div>
+                  <span className="text-gold-accent font-bold">Mon - Sun:</span>
+                  <br />
+                  11:00 AM - 11:30 PM
+                  <br />
+                  <span className="text-white/40 italic">Kitchen orders close at 11:00 PM</span>
+                </div>
               </div>
             </div>
           </div>
@@ -157,15 +170,15 @@ export default function Footer({ setTab }: FooterProps) {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-slate-800/60 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-[11px] font-mono text-slate-500 text-center sm:text-left">
-            &copy; {currentYear} Anjali Solutions. All rights reserved. Created with professional craft.
+        <div className="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-[11px] text-cream-dark/50 text-center sm:text-left">
+            &copy; 2026 The Daily Craving. All Rights Reserved. Created with professional culinary dedication.
           </p>
 
           {/* Scroll to Top button */}
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="flex items-center gap-1 px-3 py-1.5 rounded-lg border border-slate-800 hover:border-neon-blue text-xs text-slate-500 hover:text-neon-blue transition-all cursor-pointer bg-slate-900/20"
+            className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl border border-white/10 hover:border-gold-accent text-xs text-cream-dark hover:text-gold-accent transition-all cursor-pointer bg-white/5 backdrop-blur-sm"
           >
             <span>Back to Top</span>
             <ArrowUp size={12} />
